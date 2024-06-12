@@ -11,21 +11,29 @@ function dateArea(){
   
   setInterval(dateArea, 1000);
   
-  function clockArea(){
+  function clockArea() {
     var hoursArea = new Date().getHours();
     var minutesArea = new Date().getMinutes();
-    var clockArea = hoursArea + ":" + minutesArea;
-      
-      if(hoursArea<10){
-          hoursArea = "0" + hoursArea;
-      }
-      if(minutesArea<10){
-          minutesArea = "0" + minutesArea;
-      }
-      var clockArea = hoursArea + ":" + minutesArea;
-      document.querySelector(".clock-area").innerHTML = clockArea;
-      setInterval(clockArea, 1000);
+    var clockArea = "";
   
+    if (hoursArea < 10) {
+      clockArea = "0" + hoursArea;
+    } else {
+      clockArea = hoursArea;
+    }
+  
+    if (minutesArea < 10) {
+      clockArea += ":0" + minutesArea;
+    } else {
+      clockArea += ":" + minutesArea;
+    }
+  
+    document.querySelector(".clock-area").innerHTML = clockArea;
+  }
+  setInterval(clockArea, 1000);
+  
+  
+
   var ntf = document.querySelector(".bell");
   var ntfBell = document.querySelector(".sound");
   var ntfBellSlash = document.querySelector(".quiet");
